@@ -3,11 +3,25 @@ body {
   min-height: 100vh;
   flex-direction: column;
   font-family: 'Open Sans', sans-serif;
+  margin-bottom: -125px;
+  position: relative;
 }
 
 main {
   flex: 1 0 auto;
 }
+
+footer {
+  height: 125px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+/*.main-container {
+  min-height: 100vh;
+}*/
 
 input::-webkit-input-placeholder { /* WebKit browsers */
   color: red !important;
@@ -37,6 +51,10 @@ h2 {
 p {
   margin-top: 5px;
   margin-bottom: 0;
+}
+
+#calendar-goes-here {
+  margin-bottom: 150px;
 }
 
 #tiles-go-here a {
@@ -152,30 +170,6 @@ nav i {
   margin-top: 1.5em;
 }
 
-/*CALENDAR SHIT*/
-
-/*table {
-  border: none;
-}
-
-table.fc-right {
-  height: 100%;
-}
-
-td.fc-head-container.fc-widget-header {
-  height: 1.5em;
-  border: none;
-  background-color: red !important;
-  color: white;
-}
-
-.fc-day-top {
-  height: 1.5em;
-}
-
-td {
-  height: 10vh;
-}*/
 
 .add-recipe {
   cursor: pointer;

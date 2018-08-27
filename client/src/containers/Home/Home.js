@@ -1,11 +1,12 @@
 import React from 'react';
+import API from '../../utils/api';
 
 class Home extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
+  constructor(props) {
+    super(props);
 
-  // }
+  }
 
   state = {
     searchValue: ''
@@ -15,6 +16,24 @@ class Home extends React.Component {
     this.setState({
       searchValue: event.target.value
     })
+  }
+
+  searchFunc(event) {
+    event.preventDefault();
+    API.searchByQuery(this.state.searchValue)
+      .then(res => {
+        console.log(res)
+        this.parseResultsFromAPICall(res)
+      })
+  }
+
+  parseResultsFromAPICall = res => {
+    let results = res.recipes
+    let savedResults = [];
+    let mealItemObj = {};
+
+    savedResults.push(mealItemObj);
+    console.log(savedResults);
   }
 
   render() {
@@ -38,6 +57,7 @@ class Home extends React.Component {
                 type='submit'
                 id='submit'
                 className='btn waves-effect waves-light'
+                onSubmit={event => this.state.searchFunc(event)}
               />
             </form>
           </div>
