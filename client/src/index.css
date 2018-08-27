@@ -1,0 +1,278 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: 'Open Sans', sans-serif;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+input::-webkit-input-placeholder { /* WebKit browsers */
+  color: red !important;
+  font-style: italic;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: red !important;
+  font-style: italic;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: red !important;
+  font-style: italic;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: red !important;
+  font-style: italic;
+}
+
+h1 {
+  font-family: 'Permanent Marker', cursive;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+p {
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+#tiles-go-here a {
+  color: red;
+}
+
+#tiles-go-here a:hover {
+  color: #26a69a;
+}
+
+.footer-link {
+  color: #26a69a;
+}
+
+.footer-link:hover {
+  opacity: 0.7;
+}
+
+/*navbar active/hover stuff*/
+.active {
+  background-color: black !important;
+}
+
+.active a {
+  color: white;
+}
+
+#nav-mobile li {
+  color: black !important;
+  border-radius: 8px;
+}
+
+nav .brand-logo {
+  color: black;
+  font-family: 'Permanent Marker', cursive;
+}
+
+nav .brand-logo:hover {
+  color: #26a69a;
+}
+
+nav ul#nav-mobile a:hover {
+  background-color: rgba(0,0,0,0);
+  color: white;
+}
+
+nav #nav-mobile.active a:hover {
+  color: white;
+}
+
+.side-nav li.active a:hover, .side-nav li a:hover, #nav-mobile li:hover, .active:hover {
+  background-color: #26a69a !important;
+  color: white;
+}
+
+nav li a {
+  color: black;
+}
+
+nav #nav-mobile li {
+  margin: 0 5px 0 5px;
+}
+
+nav #mobile.active a {
+  background-color: black;
+}
+
+nav #mobile.active a {
+  background-color: black;
+}
+
+nav {
+  -webkit-box-shadow: none;
+  margin-top: 10px;
+}
+
+.saved-link {
+  color: red;
+  font-weight: 600;
+}
+
+.saved-link:hover {
+  color: #26a69a;
+}
+
+.side-nav li.active a {
+  background-color: black;
+  color: white;
+}
+
+.sidenav>li>a {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.side-nav li a {
+  background-color: white;
+  color: black;
+}
+
+.right {
+  padding-right: 20px;
+}
+
+nav i {
+  font-size: 30px !important;
+}
+
+#tiles-go-here, #saved-recipes {
+  display: grid;
+  grid-gap: 50px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 1.5em;
+}
+
+/*CALENDAR SHIT*/
+
+/*table {
+  border: none;
+}
+
+table.fc-right {
+  height: 100%;
+}
+
+td.fc-head-container.fc-widget-header {
+  height: 1.5em;
+  border: none;
+  background-color: red !important;
+  color: white;
+}
+
+.fc-day-top {
+  height: 1.5em;
+}
+
+td {
+  height: 10vh;
+}*/
+
+.add-recipe {
+  cursor: pointer;
+}
+
+.main-btn {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.multiple-items {
+  margin-top: 30px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.page-footer {
+  margin-top: 30px;
+}
+
+.recipe, .recipe-that-is-saved {
+  text-align: center;
+  align-self: center;
+}
+
+.recipe img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.recipe-that-is-saved img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.saved-photo {
+  margin-bottom: 10px;
+}
+
+.slick-prev {
+  left: -50px;
+}
+
+.slick-next {
+  right: -50px;
+}
+
+.slick-next, .slick-prev {
+  width: 50px;
+  height: 50px;
+}
+
+.slick-next:before, .slick-prev:before {
+  color: red;
+  font-size: 40px;
+  width: 50px;
+  height: 50px;
+}
+
+.slick-slide {
+  align-self: center;
+  text-align: center;
+}
+
+.slides {
+  text-align: center;
+  align-self: center;
+  padding: 10px;
+}
+
+.slides img {
+  width: 100%;
+}
+
+.transparent {
+  background-color: RGBA(255, 255, 255, 0.2);
+}
+
+
+@media only screen and (max-width: 992px) {
+  #saved-recipes {
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 1.5em;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  h1 {
+    font-size: 50px;
+  }
+
+  #saved-recipes {
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: 1fr;
+    margin-top: 1.5em;
+  }
+}
