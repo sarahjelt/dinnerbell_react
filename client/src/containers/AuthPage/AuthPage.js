@@ -34,7 +34,7 @@ class AuthPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='container'>
         <SignUp
           handleInputChange={this.handleInputChange}
           handleButtonPress={this.handleButtonPress}

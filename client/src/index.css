@@ -131,6 +131,10 @@ nav {
   margin-top: 10px;
 }
 
+.margin-top {
+  margin-top: 35px;
+}
+
 .saved-link {
   color: red;
   font-weight: 600;

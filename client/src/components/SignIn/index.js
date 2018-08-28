@@ -4,7 +4,7 @@ import { FormButton } from '../Atoms/FormButton'
 
 export const SignIn = (props) => {
   return (
-    <form>
+    <form className='margin-top'>
       <Input
         inputType='text'
         inputName='loginEmail'
@@ -21,7 +21,7 @@ export const SignIn = (props) => {
       />
       <FormButton
         buttonName='loginButton'
-        buttonText='Login'
+        buttonText='Sign In'
         handleButtonPress={props.handleButtonPress}
       />
     </form>

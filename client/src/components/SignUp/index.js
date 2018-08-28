@@ -5,7 +5,7 @@ import { FormButton } from '../Atoms/FormButton'
 export const SignUp = (props) => {
   return (
     <div>
-      <form>
+      <form className='margin-top'>
         <Input
           inputType='text'
           inputName='signUpName'
