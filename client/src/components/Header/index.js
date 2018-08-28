@@ -17,10 +17,10 @@ export const Header = (props) => (
           <a href='/saved' title='Saved'>Saved</a>
         </li>
         <li>
-          <a href='/signup'>Sign Up</a>
+          <a href='/login'>Sign Up</a>
         </li>
         <li>
-          <a href='/signin'>Sign In</a>
+          <a href='/login'>Sign In</a>
         </li>
       </ul>
       <ul className="side-nav" id="mobile">

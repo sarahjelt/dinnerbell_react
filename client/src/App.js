@@ -8,6 +8,7 @@ import Home from './containers/Home/Home';
 import NoMatch from './containers/NoMatch/NoMatch';
 import Calendar from './containers/Calendar/Calendar';
 import Saved from './containers/Saved/Saved';
+import AuthPage from './containers/AuthPage/AuthPage';
 
 class App extends Component {
 
@@ -20,6 +21,7 @@ class App extends Component {
             <Route exact path='/' component={Home} />
             <Route exact path='/calendar' component={Calendar} />
             <Route exact path='/saved' component={Saved} />
+            <Route exact path='/login' component={AuthPage} />
             <Route component={NoMatch} />
           </Switch>
           <Footer />
