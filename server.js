@@ -17,13 +17,13 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use(routes);
 
-mongoose.Promise = global.Promise;
-mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost/dinnerbell_react'
-);
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/dinnerbell_react';
+
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI);
 
 app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, '/client/build/index.html'));
+  res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
 
 app.listen(PORT, function() {

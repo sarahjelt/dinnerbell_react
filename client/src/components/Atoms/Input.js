@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const Input = (props) => (
-  <div>
+  <div className='input-field'>
     <input
       id={props.inputName}
       type={props.inputType}

@@ -3,10 +3,10 @@ import API from '../../utils/api';
 
 class Home extends React.Component {
 
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-  }
+  // }
 
   state = {
     searchValue: ''

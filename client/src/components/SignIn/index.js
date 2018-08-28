@@ -6,7 +6,7 @@ export const SignIn = (props) => {
   return (
     <form className='margin-top'>
       <Input
-        inputType='text'
+        inputType='email'
         inputName='loginEmail'
         inputLabel='email'
         placeholder='email'

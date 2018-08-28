@@ -4,10 +4,10 @@ import { SignIn } from '../../components/SignIn';
 import API from '../../utils/api'
 
 class AuthPage extends React.Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-  }
+  // }
 
   state = {
     loginEmail: '',
@@ -34,16 +34,22 @@ class AuthPage extends React.Component {
 
   render() {
     return (
+      <main>
       <div className='container'>
+        <a id="signup" name="signup"></a>
+        <h1>Sign Up</h1>
         <SignUp
           handleInputChange={this.handleInputChange}
           handleButtonPress={this.handleButtonPress}
         />
+        <a id="signin" name="signin"></a>
+        <h1>Sign In</h1>
         <SignIn
           handleInputChange={this.handleInputChange}
           handleButtonPress={this.handleButtonPress}
         />
       </div>
+      </main>
     )
   }
 }
