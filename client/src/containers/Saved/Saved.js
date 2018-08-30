@@ -1,4 +1,5 @@
 import React from 'react';
+import { SavedMeal } from '../../components/SavedMeal';
 
 class Saved extends React.Component {
 
@@ -24,8 +25,8 @@ class Saved extends React.Component {
           <div>
             <h1>Saved</h1>
           </div>
-          <div id='saved-recipes'>
-
+          <div className='saved-recipes'>
+            <SavedMeal />
           </div>
         </div>
       </main>

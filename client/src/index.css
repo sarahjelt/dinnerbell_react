@@ -194,13 +194,12 @@ nav i {
   font-size: 30px !important;
 }
 
-#tiles-go-here, #saved-recipes {
+#tiles-go-here, .saved-recipes {
   display: grid;
   grid-gap: 50px;
   grid-template-columns: 1fr 1fr 1fr;
   margin-top: 1.5em;
 }
-
 
 .add-recipe {
   cursor: pointer;
@@ -281,7 +280,7 @@ nav i {
 
 
 @media only screen and (max-width: 992px) {
-  #saved-recipes {
+  .saved-recipes {
     display: grid;
     grid-gap: 50px;
     grid-template-columns: 1fr 1fr;
@@ -294,7 +293,7 @@ nav i {
     font-size: 50px;
   }
 
-  #saved-recipes {
+  .saved-recipes {
     display: grid;
     grid-gap: 50px;
     grid-template-columns: 1fr;

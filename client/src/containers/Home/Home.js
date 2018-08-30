@@ -12,7 +12,8 @@ class Home extends React.Component {
   // }
 
   state = {
-    searchValue: ''
+    searchValue: '',
+    results: []
   }
 
   handleInputChange = event => {
@@ -21,8 +22,7 @@ class Home extends React.Component {
     })
   }
 
-  searchFunc(event) {
-    event.preventDefault();
+  componentDidMount() {
     API.searchByQuery(this.state.searchValue)
       .then(res => {
         console.log(res)
@@ -65,7 +65,12 @@ class Home extends React.Component {
             </form>
           </div>
           <div id='tiles-go-here'>
-            <SearchResults />
+            {this.state.results.map((result, index) => (
+              <SearchResults
+                id={1}
+                key={1}
+              />
+            ))}
           </div>
           <div className='multiple'>
             <Slides
