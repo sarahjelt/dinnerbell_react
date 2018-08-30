@@ -1,11 +1,14 @@
 import React from 'react';
+// import AuthService from '../../components/Modules/AuthService';
 import API from '../../utils/api';
+import { SearchResults } from '../../components/SearchResults';
+import { Slides } from '../../components/Slides';
 
 class Home extends React.Component {
 
   // constructor(props) {
   //   super(props);
-
+  //   this.Auth = new AuthService();
   // }
 
   state = {
@@ -62,11 +65,16 @@ class Home extends React.Component {
             </form>
           </div>
           <div id='tiles-go-here'>
-
+            <SearchResults />
           </div>
-          <div className='multiple-items'>
-
-
+          <div className='multiple'>
+            <Slides
+              dots={true}
+              infinite={true}
+              speed={500}
+              slidesToShow={3}
+              slidesToScroll={1}
+            />
           </div>
         </div>
       </main>
