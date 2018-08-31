@@ -2,35 +2,32 @@ import React from 'react';
 import Slider from 'react-slick';
 
 export const Slides = props => {
+  if (!props.bool) {
+    return (
+      <Slider {...props}>
+        {stockImages.map((item, key) => (
+          <div className='slides' key={item}>
+            <a href={item}>
+              <img src={item} />
+            </a>
+          </div>
+          )
+        )}
+      </Slider>
+    )
+  }
+
   return (
     <Slider {...props}>
-      <div>
-        <h5>Test 1</h5>
-      </div>
-      <div>
-        <h5>Test 2</h5>
-      </div>
-      <div>
-        <h5>Test 3</h5>
-      </div>
-      <div>
-        <h5>Test 4</h5>
-      </div>
-      <div>
-        <h5>Test 5</h5>
-      </div>
-      <div>
-        <h5>Test 6</h5>
-      </div>
-      <div>
-        <h5>Test 7</h5>
-      </div>
-      <div>
-        <h5>Test 8</h5>
-      </div>
-      <div>
-        <h5>Test 9</h5>
-      </div>
+      {props.saved.map((result, index) => (
+        <div className='slides' key={index} id={result._id}>
+          <a href={result.item.url}>
+            <img src={result.item.picture} />
+          </a>
+        </div>
+      ))}
     </Slider>
-  );
-};
+  )
+}
+
+const stockImages = ['https://i.pinimg.com/564x/6b/0b/8a/6b0b8a1c3443327b245fee7315a813f0.jpg', 'https://i.pinimg.com/564x/6b/0b/8a/6b0b8a1c3443327b245fee7315a813f0.jpg', 'https://i.pinimg.com/564x/6b/0b/8a/6b0b8a1c3443327b245fee7315a813f0.jpg', 'https://i.pinimg.com/564x/6b/0b/8a/6b0b8a1c3443327b245fee7315a813f0.jpg', 'https://i.pinimg.com/564x/6b/0b/8a/6b0b8a1c3443327b245fee7315a813f0.jpg', 'https://i.pinimg.com/564x/6b/0b/8a/6b0b8a1c3443327b245fee7315a813f0.jpg'];

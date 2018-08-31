@@ -17,7 +17,8 @@ class Home extends React.Component {
     results: [],
     userEmail: '',
     userId: '',
-    userName: ''
+    userName: '',
+    savedMeals: []
   }
 
   componentWillMount() {
@@ -25,6 +26,10 @@ class Home extends React.Component {
       this.setUserInfoInState();
     }
   };
+
+  componentDidMount() {
+    this.loadUserSaved();
+  }
 
   handleInputChange = event => {
     this.setState({
@@ -110,6 +115,20 @@ class Home extends React.Component {
       })
   };
 
+  loadUserSaved = (userId) => {
+
+    API.getSavedMeals(this.state.userId)
+      .then(res => {
+        if (res.data === null) {
+          return null
+        } else {
+          this.setState({
+            savedMeals: res.data.planner
+          })
+        }
+      })
+  };
+
   render() {
     return (
       <main>
@@ -156,14 +175,21 @@ class Home extends React.Component {
                   speed={500}
                   slidesToShow={3}
                   slidesToScroll={1}
+                  autoplay={true}
+                  autoplaySpeed={2000}
+                  saved={this.state.savedMeals}
+                  bool={true}
                 />
               ) : (
                 <Slides
                   dots={true}
                   infinite={true}
                   speed={500}
-                  slidesToShow={1}
+                  slidesToShow={3}
                   slidesToScroll={1}
+                  autoplay={true}
+                  autoplaySpeed={2000}
+                  bool={false}
                 />
               )
             }
