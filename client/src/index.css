@@ -300,6 +300,10 @@ nav i {
   color: #26a69a;
 }
 
+.slide-header {
+  text-align: center;
+}
+
 @media only screen and (max-width: 992px) {
   #saved-recipes {
     display: grid;

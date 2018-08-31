@@ -7,7 +7,7 @@ export const SavedMeal = props => {
   return props.saved.map((result, index) => (
       <div className='recipe-that-is-saved' key={index} id={result._id}>
         <img src={result.item.picture} className='saved-photo' dataid={result.item.recipeId} />
-        <p><a href={result.item.url}>{result.item.name}</a></p>
+        <p><a href={result.item.url} target='_blank'>{result.item.name}</a></p>
       </div>
     ))
   }
