@@ -20,7 +20,7 @@ app.use(routes);
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/dinnerbell_react';
 
 mongoose.Promise = global.Promise;
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, '/client/build/index.html'));

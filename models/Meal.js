@@ -3,34 +3,21 @@ const Schema = mongoose.Schema;
 
 const MealSchema = new Schema({
   name: {
+    type: String
+  },
+  recipeId: {
     type: String,
     required: true
   },
-  mealTime: {
-    type: String,
-    required: true
+  url: {
+    type: String
   },
-  addedBy: {
-    type: String,
-    required: true
-  },
-  day: {
-    type: String,
-    required: false
-  },
-  image_url: {
-    type: String,
-    required: false
-  },
-  source_url: {
-    type: String,
-    required: true
+  picture: {
+    type: String
   }
 },
   { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } }
 );
 
-// creates model from above schema -- ADDING COLLECTION NAME TO END HERE MADE IT FINALLY FIND THE RIGHT COLLECTION
 const Meal = mongoose.model('Meal', MealSchema);
-
 module.exports = Meal;

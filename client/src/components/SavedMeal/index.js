@@ -1,9 +1,14 @@
 import React from 'react';
 
 export const SavedMeal = props => {
-  return (
-    <div className='recipe-that-is-saved'>
-      <img src='https://i.pinimg.com/originals/8c/56/c1/8c56c1cb86b44aa5e19ab592b22a81b7.jpg' className='saved-photo' data-id='' />
-    </div>
-  )
+  if (props.saved.length === 0) {
+    return <h5>No saved recipes!</h5>
+  } else {
+  return props.saved.map((result, index) => (
+      <div className='recipe-that-is-saved' key={index} id={result._id}>
+        <img src={result.item.picture} className='saved-photo' dataid={result.item.recipeId} />
+        <p><a href={result.item.url}>{result.item.name}</a></p>
+      </div>
+    ))
+  }
 };

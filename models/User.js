@@ -58,7 +58,4 @@ UserSchema.methods.comparePassword = function (passw, cb) {
   });
 };
 
-// creates model from above schema -- ADDING COLLECTION NAME TO END HERE MADE IT FINALLY FIND THE RIGHT COLLECTION
-// var User = mongoose.model('User', UserSchema, 'User');
-
 module.exports = mongoose.model('User', UserSchema);

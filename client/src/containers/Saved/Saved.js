@@ -1,18 +1,59 @@
 import React from 'react';
 import { SavedMeal } from '../../components/SavedMeal';
-// import AuthService from '../../components/modules/AuthService';
+import AuthService from '../../components/Modules/AuthService';
+import API from '../../utils/api';
 
 class Saved extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.Auth = new AuthService();
-  // }
+  constructor(props) {
+    super(props);
+    this.Auth = new AuthService();
+  };
 
   state = {
     searchValue: '',
-    savedMeals: []
+    savedMeals: [],
+    userEmail: '',
+    userId: '',
+    userName: ''
+  };
+
+  componentWillMount() {
+    this.setUserInfoInState();
+  };
+
+  componentDidMount() {
+    this.loadUserSaved()
+  };
+
+  setUserInfoInState = () => {
+    let userInfo = this.Auth.getProfile();
+    console.log(userInfo);
+
+    if (!userInfo) {
+      console.log('no user logged in')
+    } else {
+      this.setState({
+        userEmail: userInfo.email,
+        userId: userInfo._id,
+        userName: userInfo.name
+      })
+    }
   }
+
+  loadUserSaved = (userId) => {
+
+    API.getSavedMeals(this.state.userId)
+      .then(res => {
+        if (res.data === null) {
+          return null
+        } else {
+          this.setState({
+            savedMeals: res.data.planner
+          })
+        }
+      })
+  };
 
   render() {
     return (
@@ -22,12 +63,9 @@ class Saved extends React.Component {
             <h1>Saved</h1>
           </div>
           <div id='saved-recipes'>
-            {this.state.savedMeals.map((result, index) => (
-              <SavedMeal
-                id={1}
-                key={1}
-              />
-            ))}
+            <SavedMeal
+              saved={this.state.savedMeals}
+            />
           </div>
         </div>
       </main>

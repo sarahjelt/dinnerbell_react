@@ -2,7 +2,6 @@ import React from 'react';
 import { Input } from '../Atoms/Input'
 import { FormButton } from '../Atoms/FormButton'
 import API from '../../utils/api';
-import AuthService from '../Modules/AuthService';
 
 export class SignUp extends React.Component {
 

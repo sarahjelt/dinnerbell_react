@@ -4,7 +4,14 @@ export const SearchResults = props => {
   return (
     <div className='recipe'>
       <img src={props.picture} alt={props.name} />
-      <a href={props.url}><i className='add-recipe medium material-icons waves-effect waves-light' data-id=''>add_circle</i></a>
+      <p><a href={props.url}>{props.name}</a></p>
+      <a href='#'>
+        <i onClick={() => props.handleAdd(props.name, props.id, props.url, props.picture)}
+          className='add-recipe medium material-icons waves-effect waves-light'
+          dataid={props.id}>
+            add_circle
+        </i>
+      </a>
     </div>
   )
 };

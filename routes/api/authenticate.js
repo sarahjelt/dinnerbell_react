@@ -18,7 +18,7 @@ router.post('/signup', function(req, res) {
       name: req.body.name
     });
 
-    // save the user
+    // save user
     newUser.save(function(err) {
       if (err) {
         return res.json({success: false, msg: 'Email already exists.'});
@@ -37,12 +37,12 @@ router.post('/signin', function(req, res) {
     if (!user) {
       res.status(401).send({success: false, msg: 'Authentication failed. User not found.'});
     } else {
-      // check if password matches
+      // check password
       user.comparePassword(req.body.password, function (err, isMatch) {
         if (isMatch && !err) {
-          // if user is found and password is right create a token
+          // create token if user found and password matches
           var token = jwt.sign(user.toObject(), config.secret);
-          // return the information including token as JSON
+          // return info with token as JSON
           res.json({success: true, token: token});
         } else {
           res.status(401).send({success: false, msg: 'Authentication failed. Wrong password.'});

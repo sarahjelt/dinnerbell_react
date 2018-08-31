@@ -4,8 +4,8 @@ import AuthService from '../Modules/AuthService';
 export class Header extends React.Component {
 
   constructor(props) {
-      super(props);
-      this.Auth = new AuthService();
+    super(props);
+    this.Auth = new AuthService();
   }
 
   render() {

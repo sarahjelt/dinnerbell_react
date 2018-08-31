@@ -28,7 +28,7 @@ module.exports = {
   getUserProfile: function(req, res) {
     db.User
       .findOne({ _id: req.params.id})
-      .populate('profile.item')
+      .populate('planner.item')
       .exec(function(err, data) {
         if (err) console.log(err)
         else res.json(data)
@@ -71,9 +71,16 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  findMealByName: function(req, res) {
+    db.Meal
+      .find({name: req.body.name})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err))
+  },
   createMeal: function(req, res) {
     db.Meal
       .create(req.body)
+      .then(console.log(req.body))
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -89,5 +96,11 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  saveMeal: function(req, res) {
+    db.User
+      .findOneAndUpdate({_id: req.params.id}, { $push: {planner: {item: req.body.mealItemId}}}, { new: true} )
+      .then(dbUser => res.json(dbUser))
+      .catch(err => res.status(422).json(err))
   }
 }

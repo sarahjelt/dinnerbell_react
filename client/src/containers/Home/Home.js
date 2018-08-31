@@ -1,25 +1,48 @@
 import React from 'react';
-// import AuthService from '../../components/Modules/AuthService';
+import AuthService from '../../components/Modules/AuthService';
 import API from '../../utils/api';
 import { SearchResults } from '../../components/SearchResults';
 import { Slides } from '../../components/Slides';
+import Materialize from 'materialize-css';
 
 class Home extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.Auth = new AuthService();
-  // }
+  constructor(props) {
+    super(props);
+    this.Auth = new AuthService();
+  }
 
   state = {
     searchValue: '',
-    results: []
+    results: [],
+    userEmail: '',
+    userId: '',
+    userName: ''
   }
+
+  componentWillMount() {
+    this.setUserInfoInState();
+  };
 
   handleInputChange = event => {
     this.setState({
       searchValue: event.target.value
     })
+  }
+
+  setUserInfoInState = () => {
+    let userInfo = this.Auth.getProfile();
+    console.log(userInfo);
+
+    if (!userInfo) {
+      console.log('no user logged in')
+    } else {
+      this.setState({
+        userEmail: userInfo.email,
+        userId: userInfo._id,
+        userName: userInfo.name
+      })
+    }
   }
 
   searchFunc = event => {
@@ -49,6 +72,39 @@ class Home extends React.Component {
       results: savedResults
     })
     console.log(savedResults);
+  };
+
+  handleAdd = (name, recipeId, url, picture) => {
+    Materialize.toast(`${name} saved!`, 4000);
+
+    let userId = this.state.userId;
+    let mealItem = {
+      name,
+      recipeId,
+      url,
+      picture
+    }
+
+    API.getMealIdIfExists(mealItem)
+      .then(res => {
+        console.log([res.data.length === 0, res.data])
+        if (res.data.length < 1) {
+          console.log('this item does not exist in the DB');
+          API.addMealToDB(mealItem)
+            .then(response => {
+              API.getMealIdIfExists(mealItem)
+                .then(res2 => {
+                  let mealItemId = res2.data[0]._id
+                  API.addMealToUserSaved(userId, mealItemId)
+                    .then(res => console.log(res))
+                })
+            })
+        } else {
+          console.log('this item is already in the DB');
+          API.addMealToUserSaved(userId, res.data[0]._id)
+            .then(res => console.log(res))
+        }
+      })
   };
 
   render() {
@@ -84,17 +140,30 @@ class Home extends React.Component {
                 name={result.name}
                 picture={result.picture}
                 url={result.url}
+                handleAdd={this.handleAdd}
               />
             ))}
           </div>
           <div className='multiple'>
-            <Slides
-              dots={true}
-              infinite={true}
-              speed={500}
-              slidesToShow={3}
-              slidesToScroll={1}
-            />
+            {
+              (this.Auth.loggedIn() ) ? (
+                <Slides
+                  dots={true}
+                  infinite={true}
+                  speed={500}
+                  slidesToShow={3}
+                  slidesToScroll={1}
+                />
+              ) : (
+                <Slides
+                  dots={true}
+                  infinite={true}
+                  speed={500}
+                  slidesToShow={1}
+                  slidesToScroll={1}
+                />
+              )
+            }
           </div>
         </div>
       </main>
