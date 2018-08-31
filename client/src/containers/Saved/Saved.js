@@ -19,7 +19,11 @@ class Saved extends React.Component {
   };
 
   componentWillMount() {
-    this.setUserInfoInState();
+    if (this.Auth.loggedIn()) {
+      this.setUserInfoInState();
+    } else {
+      window.location.assign("/");
+    }
   };
 
   componentDidMount() {
@@ -31,6 +35,7 @@ class Saved extends React.Component {
     console.log(userInfo);
 
     if (!userInfo) {
+      window.location.assign("/")
       console.log('no user logged in')
     } else {
       this.setState({
@@ -60,7 +65,7 @@ class Saved extends React.Component {
       <main>
         <div className='container'>
           <div>
-            <h1>Saved</h1>
+            <h1>Saved Meal Ideas</h1>
           </div>
           <div id='saved-recipes'>
             <SavedMeal

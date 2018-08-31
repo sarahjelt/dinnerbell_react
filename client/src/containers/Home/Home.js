@@ -21,7 +21,9 @@ class Home extends React.Component {
   }
 
   componentWillMount() {
-    this.setUserInfoInState();
+    if (this.Auth.loggedIn()) {
+      this.setUserInfoInState();
+    }
   };
 
   handleInputChange = event => {
@@ -35,6 +37,7 @@ class Home extends React.Component {
     console.log(userInfo);
 
     if (!userInfo) {
+      window.location.assign("/")
       console.log('no user logged in')
     } else {
       this.setState({

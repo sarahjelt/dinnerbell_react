@@ -11,9 +11,6 @@ export default {
   authenticateUser: function(userData) {
     return axios.post('/api/authenticate/signin', userData)
   },
-  signOutUser: function(userData) {
-    return axios.post('/api/authenticate/signup')
-  },
   addMealToDB: function(mealItem) {
     console.log('this is the', JSON.stringify(mealItem))
     return axios.post('/api/mealApp/meal', mealItem)

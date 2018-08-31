@@ -203,6 +203,11 @@ nav i {
 
 .add-recipe {
   cursor: pointer;
+  color: red;
+}
+
+.add-recipe:hover {
+  color: #26a69a;
 }
 
 .main-btn {
@@ -233,6 +238,14 @@ nav i {
 .recipe-that-is-saved img {
   max-width: 100%;
   border-radius: 10px;
+}
+
+.recipe-that-is-saved a {
+  color: red;
+}
+
+.recipe-that-is-saved a:hover {
+  color: #26a69a;
 }
 
 .saved-photo {
@@ -278,6 +291,14 @@ nav i {
   background-color: RGBA(255, 255, 255, 0.2);
 }
 
+.doodad {
+  cursor: default;
+  color: black;
+}
+
+.doodad:hover {
+  color: #26a69a;
+}
 
 @media only screen and (max-width: 992px) {
   #saved-recipes {

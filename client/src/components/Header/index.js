@@ -21,9 +21,9 @@ export class Header extends React.Component {
           {
             (this.Auth.loggedIn() ) ? (
               <div>
-                <li>
+                {/*<li>
                   <a href='/calendar'>Calendar</a>
-                </li>
+                </li>*/}
                 <li>
                   <a href='/saved' title='Saved'>Saved</a>
                 </li>
@@ -50,7 +50,7 @@ export class Header extends React.Component {
           {
             (this.Auth.loggedIn() ) ? (
               <div>
-                <li><a href='/calendar'>Calendar</a></li>
+                {/*<li><a href='/calendar'>Calendar</a></li>*/}
                 <li><a href='/saved'>Saved</a></li>
                 <li
                   onClick={() => this.Auth.logout()}
@@ -66,7 +66,7 @@ export class Header extends React.Component {
             )
           }
         </ul>
-        <ul className='right'><i className='black-text material-icons'>notifications</i></ul>
+        <ul className='right'><i className='doodad material-icons'>notifications</i></ul>
       </nav>
     </header>
   )}
