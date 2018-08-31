@@ -22,22 +22,34 @@ class Home extends React.Component {
     })
   }
 
-  componentDidMount() {
+  searchFunc = event => {
+    event.preventDefault();
+
     API.searchByQuery(this.state.searchValue)
       .then(res => {
         console.log(res)
         this.parseResultsFromAPICall(res)
       })
-  }
+  };
 
   parseResultsFromAPICall = res => {
     let results = res.recipes
     let savedResults = [];
-    let mealItemObj = {};
-
-    savedResults.push(mealItemObj);
+    
+    results.forEach(mealItem => {
+      let mealItemObj = {
+        id: mealItem.recipe_id,
+        name: mealItem.title,
+        picture: mealItem.image_url,
+        url: mealItem.source_url
+      }
+      savedResults.push(mealItemObj)
+    })
+    this.setState({
+      results: savedResults
+    })
     console.log(savedResults);
-  }
+  };
 
   render() {
     return (
@@ -60,15 +72,18 @@ class Home extends React.Component {
                 type='submit'
                 id='submit'
                 className='btn waves-effect waves-light'
-                onSubmit={event => this.state.searchFunc(event)}
+                onClick={this.searchFunc}
               />
             </form>
           </div>
           <div id='tiles-go-here'>
             {this.state.results.map((result, index) => (
               <SearchResults
-                id={1}
-                key={1}
+                id={result.id}
+                key={index}
+                name={result.name}
+                picture={result.picture}
+                url={result.url}
               />
             ))}
           </div>
@@ -88,7 +103,7 @@ class Home extends React.Component {
 }
 
 // const formActionDeterminer = searchValue => {
-//   return `/search/${searchValue}`
+//   return `/`
 // };
 
 export default Home;
