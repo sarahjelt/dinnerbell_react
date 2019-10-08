@@ -11,17 +11,19 @@
     "express-jwt": "^5.3.1",
     "jwks-rsa": "^1.3.0",
     "jwt-decode": "^2.2.0",
-    "mongoose": "^5.2.9",
+    "mongoose": "^5.7.3",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.5",
-    "react-truncate": "^2.4.0"
+    "react-scripts": "^3.2.0",
+    "react-truncate": "^2.4.0",
+    "typescript": "^3.6.3"
   },
   "scripts": {
     "server": "node server.js",
+    "client": "cd client && npm run start",
     "start": "react-scripts start",
     "build": "cd client && npm build",
     "test": "react-scripts test --env=jsdom",
