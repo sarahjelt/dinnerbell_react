@@ -24,7 +24,7 @@
   "scripts": {
     "server": "node server.js",
     "client": "cd client && npm run start",
-    "start": "react-scripts start",
+    "start": "npm run server && cd client && npm run start",
     "build": "cd client && npm build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
