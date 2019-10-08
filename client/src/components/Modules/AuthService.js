@@ -3,7 +3,7 @@ import decode from 'jwt-decode';
 export default class AuthService {
   // initializing important variables
   constructor(domain) {
-    this.domain = 'https://lit-bayou-61393.herokuapp.com/' || 'http://localhost:3001' // API server domain -- HEROKU ONE WILL NEED TO CHANGE
+    this.domain = 'https://secure-shore-00548.herokuapp.com/' || 'http://localhost:3001' // API server domain -- HEROKU ONE WILL NEED TO CHANG TO WHATEVER DEPLOYED URL IS
     this.login = this.login.bind(this)
     this.getProfile = this.getProfile.bind(this)
   }
