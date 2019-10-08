@@ -39,11 +39,11 @@ class Home extends React.Component {
 
   setUserInfoInState = () => {
     let userInfo = this.Auth.getProfile();
-    console.log(userInfo);
+    //console.log(userInfo);
 
     if (!userInfo) {
       window.location.assign("/")
-      console.log('no user logged in')
+      //console.log('no user logged in')
     } else {
       this.setState({
         userEmail: userInfo.email,
@@ -58,7 +58,7 @@ class Home extends React.Component {
 
     API.searchByQuery(this.state.searchValue)
       .then(res => {
-        console.log(res)
+        //console.log(res)
         this.parseResultsFromAPICall(res)
       })
   };
@@ -79,7 +79,7 @@ class Home extends React.Component {
     this.setState({
       results: savedResults
     })
-    console.log(savedResults);
+    //console.log(savedResults);
   };
 
   handleAdd = (name, recipeId, url, picture) => {
@@ -95,9 +95,9 @@ class Home extends React.Component {
 
     API.getMealIdIfExists(mealItem)
       .then(res => {
-        console.log([res.data.length === 0, res.data])
+        //console.log([res.data.length === 0, res.data])
         if (res.data.length < 1) {
-          console.log('this item does not exist in the DB');
+          //console.log('this item does not exist in the DB');
           API.addMealToDB(mealItem)
             .then(response => {
               API.getMealIdIfExists(mealItem)
@@ -108,7 +108,7 @@ class Home extends React.Component {
                 })
             })
         } else {
-          console.log('this item is already in the DB');
+          //console.log('this item is already in the DB');
           API.addMealToUserSaved(userId, res.data[0]._id)
             .then(res => console.log(res))
         }

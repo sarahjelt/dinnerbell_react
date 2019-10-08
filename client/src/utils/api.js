@@ -12,11 +12,11 @@ export default {
     return axios.post('/api/authenticate/signin', userData)
   },
   addMealToDB: function(mealItem) {
-    console.log('this is the', JSON.stringify(mealItem))
+    //console.log('this is the', JSON.stringify(mealItem))
     return axios.post('/api/mealApp/meal', mealItem)
   },
   getMealIdIfExists: function(mealItem) {
-    console.log('mealItem, finding the id', mealItem);
+    //console.log('mealItem, finding the id', mealItem);
     return axios.post('/api/mealApp/meal/validate', mealItem)
   },
   getSavedMeals: function(id) {
