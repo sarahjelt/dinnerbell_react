@@ -25,7 +25,7 @@
     "server": "node server.js",
     "client": "cd client && npm run start",
     "start": "npm run server && cd client && npm run start",
-    "build": "npm install && cd client && npm install && npm build && cd ..",
+    "build": "npm install && cd client && npm install && npm run build && cd ..",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "installDeps": "npm install && cd client && npm install && cd .."
