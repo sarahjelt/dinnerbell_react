@@ -26,9 +26,15 @@
     "react-truncate": "^2.4.0"
   },
   "scripts": {
+    "server": "node server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "installDeps": "npm install && cd client && npm install && cd .."
+  },
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.11.3"
   }
 }
