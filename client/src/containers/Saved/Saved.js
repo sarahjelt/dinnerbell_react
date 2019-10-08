@@ -32,11 +32,11 @@ class Saved extends React.Component {
 
   setUserInfoInState = () => {
     let userInfo = this.Auth.getProfile();
-    console.log(userInfo);
+    //console.log(userInfo);
 
     if (!userInfo) {
       window.location.assign("/")
-      console.log('no user logged in')
+      //console.log('no user logged in')
     } else {
       this.setState({
         userEmail: userInfo.email,
